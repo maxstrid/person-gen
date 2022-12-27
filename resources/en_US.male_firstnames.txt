@@ -1,3 +1,4 @@
+# https://www.cs.cmu.edu/Groups/AI/areas/nlp/corpora/names/male.txt
 # List of common male names.
 # Copyright (c) January 1991 by Mark Kantrowitz.
 # 2940 names

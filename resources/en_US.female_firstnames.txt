@@ -1,3 +1,4 @@
+# https://www.cs.cmu.edu/Groups/AI/areas/nlp/corpora/names/female.txt
 # List of common female names.
 # Copyright (c) January 1991 by Mark Kantrowitz.
 # 4987 names

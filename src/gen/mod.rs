@@ -38,8 +38,8 @@ impl fmt::Display for Locale {
 impl fmt::Display for Gender {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
-            Gender::Male => write!(f, "m"),
-            Gender::Female => write!(f, "f"),
+            Gender::Male => write!(f, "male"),
+            Gender::Female => write!(f, "female"),
         }
     }
 }
@@ -52,8 +52,8 @@ pub struct Person {
 impl Person {
     pub fn new(locale: Locale, gender: Gender) -> Result<Self, Box<dyn Error>> {
         let gender = gender.to_string();
-        let first_names = Self::read(locale, format!("{gender}fnames"))?;
-        let last_names = Self::read(locale, String::from("lnames"))?;
+        let first_names = Self::read(locale, format!("{gender}_firstnames"))?;
+        let last_names = Self::read(locale, String::from("last_names"))?;
         
         Ok(Self {
             first_names,
@@ -81,7 +81,7 @@ impl Person {
         let resource_dir = format!("{data_dir}{RESOURCES}");
 
         let locale = locale.to_string(); 
-        let item = format!("{resource_dir}{locale}.{name}");
+        let item = format!("{resource_dir}{locale}.{name}.txt"); 
 
         if !Path::new(&item).exists() {
             return Err(Box::new(error::Error::UnknownLocaleError))
