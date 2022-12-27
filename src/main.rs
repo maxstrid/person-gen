@@ -1,7 +1,7 @@
 use person_gen::gen::{Person, Locale, Gender};
 
 fn main() {
-    let locale = Locale::USEN;
+    let locale = Locale::US;
     let gender = Gender::Male;
 
     let person = Person::new(locale, gender).unwrap_or_else(|e| {

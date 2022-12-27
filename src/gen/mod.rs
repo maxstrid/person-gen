@@ -18,7 +18,7 @@ const RESOURCES: &str = "/resources/";
 
 #[derive(Debug, Clone, Copy)]
 pub enum Locale {
-    USEN,
+    US,
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -30,7 +30,7 @@ pub enum Gender {
 impl fmt::Display for Locale {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
-            Locale::USEN => write!(f, "en_US"),
+            Locale::US => write!(f, "us"),
         }
     }
 }
