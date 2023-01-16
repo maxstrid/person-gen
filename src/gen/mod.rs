@@ -1,48 +1,21 @@
 use std::error::Error;
 use std::path::Path;
-use std::fmt;
 use std::fs;
+
+use crate::{Gender, Locale};
 
 use directories::ProjectDirs;
 
 use rand::seq::SliceRandom;
 
 mod error;
-use error::ToResult;
+pub use error::ToResult;
 
 #[cfg(target_family = "windows")]
 const RESOURCES: &str = r#"\Resources\"#;
 
 #[cfg(target_family = "unix")]
 const RESOURCES: &str = "/resources/";
-
-#[derive(Debug, Clone, Copy)]
-pub enum Locale {
-    US,
-}
-
-#[derive(Debug, Clone, Copy)]
-pub enum Gender {
-    Male,
-    Female,
-}
-
-impl fmt::Display for Locale {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match *self {
-            Locale::US => write!(f, "us"),
-        }
-    }
-}
-
-impl fmt::Display for Gender {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match *self {
-            Gender::Male => write!(f, "male"),
-            Gender::Female => write!(f, "female"),
-        }
-    }
-}
 
 pub struct Person {
     first_names: Vec<String>,
